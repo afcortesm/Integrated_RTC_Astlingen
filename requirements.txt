@@ -1,0 +1,5 @@
+# pyswmm is pinned because it carries the SWMM engine, and the reported
+# volumes are a property of a particular engine version.
+pyswmm==2.1.0
+numpy
+pandas

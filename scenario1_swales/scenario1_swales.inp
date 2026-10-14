@@ -1,0 +1,660 @@
+[TITLE]
+;;Project Title/Notes
+
+[OPTIONS]
+;;Option             Value
+FLOW_UNITS           CMS
+INFILTRATION         HORTON
+FLOW_ROUTING         DYNWAVE
+LINK_OFFSETS         DEPTH
+MIN_SLOPE            0
+ALLOW_PONDING        YES
+SKIP_STEADY_STATE    NO
+
+START_DATE           01/01/2000
+START_TIME           00:00:00
+REPORT_START_DATE    01/01/2000
+REPORT_START_TIME    00:00:00
+END_DATE             12/31/2000
+END_TIME             23:55:00
+SWEEP_START          01/01
+SWEEP_END            12/31
+DRY_DAYS             0
+REPORT_STEP          00:05:00
+WET_STEP             00:05:00
+DRY_STEP             00:05:00
+ROUTING_STEP         0:00:05 
+RULE_STEP            00:05:00
+
+INERTIAL_DAMPING     PARTIAL
+NORMAL_FLOW_LIMITED  BOTH
+FORCE_MAIN_EQUATION  H-W
+VARIABLE_STEP        0.75
+LENGTHENING_STEP     0
+MIN_SURFAREA         1.167
+MAX_TRIALS           8
+HEAD_TOLERANCE       0.0015
+SYS_FLOW_TOL         5
+LAT_FLOW_TOL         5
+MINIMUM_STEP         0.5
+THREADS              1
+
+[EVAPORATION]
+;;Data Source    Parameters
+;;-------------- ----------------
+CONSTANT         0.0
+DRY_ONLY         NO
+
+[RAINGAGES]
+;;Name           Format    Interval SCF      Source    
+;;-------------- --------- ------ ------ ----------
+RG1              VOLUME    0:05     1.0      TIMESERIES rain1           
+RG2              VOLUME    0:05     1.0      TIMESERIES rain2           
+RG3              VOLUME    0:05     1.0      TIMESERIES rain3           
+RG4              VOLUME    0:05     1.0      TIMESERIES rain4           
+
+[SUBCATCHMENTS]
+;;Name           Rain Gage        Outlet           Area     %Imperv  Width    %Slope   CurbLen  SnowPack        
+;;-------------- ---------------- ---------------- -------- -------- -------- -------- -------- ----------------
+SC01             RG4              J16              29.497   100      2400     0.8      0.0                      
+SC02             RG3              J13              20.714   100      1500     0.8      0                        
+SC03             RG1              J10              16.409   100      2000     0.5      0                        
+SC04             RG3              J5               6.311    100      200      0.7      0                        
+SC05             RG4              J1               14.142   100      1000     0.5      0                        
+SC06             RG2              J8               28.833   100      985      0.5      0                        
+SC07             RG3              CSO7             4.356    100      360      0.51     0                        
+SC08             RG1              CSO8             25.127   100      1950     0.45     0                        
+SC09             RG2              CSO9             6.293    100      650      0.4      0                        
+SC010            RG4              CSO10            10.666   100      650      0.5      0                        
+Sw_1             RG4              S_1              3.503    100      128.4    1        0                        
+Sw_2             RG3              S_2              2.036    100      107.7    1        0                        
+Sw_3             RG1              S_3              1.591    100      94.9     1        0                        
+Sw_4             RG3              S_4              0.589    100      58.7     1        0                        
+Sw_5             RG4              S_5              1.458    100      88.3     1        0                        
+Sw_6             RG2              S_6              3.717    100      127.6    1        0                        
+Sw_7             RG3              S_7              0.394    100      48.7     1        0                        
+Sw_8             RG1              S_8              2.873    100      118.3    1        0                        
+Sw_9             RG2              S_9              0.607    100      58.7     1        0                        
+Sw_10            RG4              S_10             1.084    100      76.6     1        0                        
+
+[SUBAREAS]
+;;Subcatchment   N-Imperv   N-Perv     S-Imperv   S-Perv     PctZero    RouteTo    PctRouted 
+;;-------------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+SC01             0.009      0.10       0.05       0.05       0.0        OUTLET    
+SC02             0.009      0.1        0.05       0.05       0          OUTLET    
+SC03             0.007      0.1        0.05       0.05       0          OUTLET    
+SC04             0.009      0.1        0.05       0.05       0          OUTLET    
+SC05             0.007      0.1        0.05       0.05       0          OUTLET    
+SC06             0.01       0.1        0.05       0.05       0          OUTLET    
+SC07             0.02       0.1        0.05       0.05       0          OUTLET    
+SC08             0.01       0.1        0.05       0.05       0          OUTLET    
+SC09             0.016      0.1        0.05       0.05       0          OUTLET    
+SC010            0.008      0.1        0.05       0.05       0          OUTLET    
+Sw_1             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_2             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_3             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_4             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_5             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_6             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_7             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_8             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_9             0.01       0.2        0.05       0.07       0          OUTLET    
+Sw_10            0.01       0.2        0.05       0.07       0          OUTLET    
+
+[INFILTRATION]
+;;Subcatchment   Param1     Param2     Param3     Param4     Param5    
+;;-------------- ---------- ---------- ---------- ---------- ----------
+SC01             3.0        0.5        4          7          0         
+SC02             3.0        0.5        4          7          0         
+SC03             3.0        0.5        4          7          0         
+SC04             3.0        0.5        4          7          0         
+SC05             3.0        0.5        4          7          0         
+SC06             3.0        0.5        4          7          0         
+SC07             3.0        0.5        4          7          0         
+SC08             3.0        0.5        4          7          0         
+SC09             3.0        0.5        4          7          0         
+SC010            3.0        0.5        4          7          0         
+Sw_1             3.0        0.5        4          7          0         
+Sw_2             3.0        0.5        4          7          0         
+Sw_3             3.0        0.5        4          7          0         
+Sw_4             3.0        0.5        4          7          0         
+Sw_5             3.0        0.5        4          7          0         
+Sw_6             3.0        0.5        4          7          0         
+Sw_7             3.0        0.5        4          7          0         
+Sw_8             3.0        0.5        4          7          0         
+Sw_9             3.0        0.5        4          7          0         
+Sw_10            3.0        0.5        4          7          0         
+
+[JUNCTIONS]
+;;Name           Elevation  MaxDepth   InitDepth  SurDepth   Aponded   
+;;-------------- ---------- ---------- ---------- ---------- ----------
+CSO10            30.000000  1.00000    0.000000   0.000000   0.000000  
+CSO7             34.00000   1.2        0.000000   0.000000   0.000     
+CSO8             32.000000  2          0.000000   0.00000    0.00000   
+CSO9             40.000000  2          0.000000   0.000000   0.000000  
+J1               34.000000  2          0.000000   05.000000  0.000000  
+J10              29.000000  2.000000   0.000000   0.000000   0.000000  
+J11              31         2          0.0000     0.0000     0.0000    
+J12              26.000000  2.000000   0.000000   0.000000   0.000000  
+J13              29.000000  2.000000   0.000000   0.000000   0.000000  
+J14              20         2          0.0000     0.0000     0.0000    
+J15              15.000000  3.000000   0.000000   0.000000   0.000000  
+J16              30.000000  2.000000   0.000000   0.000000   0.000000  
+J17              20         2          0.0000     0.0000     0.0000    
+J18              29         2          0.0000     0.0000     0.0000    
+J19              8          2          0.0000     0.0000     0.0000    
+J2               25         2          0.00000    0.00000    0.00000   
+J3               18.000000  2          0.000000   0.000000   0.000000  
+J4               33         2.0        0.00000    0.00000    0.00000   
+J5               32.00000   2.000000   0.000000   0.000000   0.000000  
+J6               25         2          0.0000     0.0000     0.0000    
+J7               39         2          0.00000    0.00000    0.00000   
+J8               36.000000  3.000000   0.000000   0.000000   0.000000  
+J9               29         2          0.0000     0.0000     0.0000    
+
+[OUTFALLS]
+;;Name           Elevation  Type       Stage Data       Gated    Route To        
+;;-------------- ---------- ---------- ---------------- -------- ----------------
+Out_SW           6          TIMESERIES Levels           NO                       
+Out_to_WWTP      6          FREE                        NO                       
+
+[STORAGE]
+;;Name           Elev.    MaxDepth   InitDepth  Shape      Curve Type/Params            SurDepth  Fevap    Psi      Ksat     IMD     
+;;-------------- -------- ---------- ----------- ---------- ---------------------------- --------- --------          -------- --------
+T5               27.000000 8          0.000000   TABULAR    Tank5                        0.000000  0.000000
+T4               27.000000 8          0.000000   TABULAR    Tank4                        0.000000  0.000000
+T6               31.000000 8          0.000000   TABULAR    Tank6                        0         0       
+T3               22.000000 8          0.000000   TABULAR    Tank3                        0.000000  0.000000
+T2               21.000000 8          0.000000   TABULAR    Tank2                        0.000000  0.000000
+T1               10.000000 8          0.000000   TABULAR    Tank1                        0.000000  0.000000
+GW1              6        10         1.0        TABULAR    Test_GW                      0         0        100      0.8      0.3     
+SW               6        4          0          FUNCTIONAL 0          0          1000     0         0       
+S_1              31       0.4        0          TABULAR    S1                           0         0       
+S_2              30       0.4        0          TABULAR    S2                           0         0       
+S_3              30       0.4        0          TABULAR    S3                           0         0       
+S_4              33       0.4        0          TABULAR    S4                           0         0       
+S_5              35       0.4        0          TABULAR    S5                           0         0       
+S_6              37       0.4        0          TABULAR    S6                           0         0       
+S_7              35       0.4        0          TABULAR    S7                           0         0       
+S_8              33       0.4        0          TABULAR    S8                           0         0       
+S_9              41       0.4        0          TABULAR    S9                           0         0       
+S_10             31       0.4        0          TABULAR    S10                          0         0       
+
+[CONDUITS]
+;;Name           From Node        To Node          Length     Roughness  InOffset   OutOffset  InitFlow   MaxFlow   
+;;-------------- ---------------- ---------------- ---------- ---------- ---------- ---------- ---------- ----------
+C1               J2               J3               400        0.013      0.00000    0.00000    0.00000    0         
+C6               J4               J5               400        0.01       0.00000    0.00000    0.00000    0         
+C2               J6               J3               400        0.012      0.00000    0.00000    0.00000    0         
+C9               J7               J8               500        0.013      0.00000    0.00000    0.00000    0         
+C16              J11              J10              500        0.012      0.0000     0.0000     0.00000    0         
+C3               J14              J3               200        0.012      0.000      0.000      0.00000    0         
+C19              J17              J15              400        0.012      0.00000    0.00000    0.00000    0         
+C11              J3               J15              200        0.012      0.0000     0.0000     0.00000    0         
+C20              J16              J15              400        0.012      0.0000     0.0000     0.00000    0         
+C22              J18              J15              500        0.013      0.0000     0.0000     0.00000    0         
+C12              J9               J12              500        0.012      0.00000    0.00000    0.00000    0         
+C17              J10              J12              200        0.012      0.0000     0.0000     0.00000    0         
+C10              J8               T6               310.5      0.012      0.00000    0.00000    0.00000    0         
+C13              J12              T3               375        0.012      0          0          0.00000    0         
+C18              J13              T2               257        0.013      0.0000     0.0000     0.00000    0         
+C23              J15              T1               305        0.013      0.0000     0.0000     0.00000    0         
+C4               J1               T5               278        0.012      0.0000     0.0000     0.00000    0         
+C7               J5               T4               204        0.012      0.00000    0.00000    0.00000    0         
+C14              J19              Out_to_WWTP      200        0.011      0.0000     0.0000     0.0000     0         
+C5               CSO7             J4               100        0.014      0.0000     0.0000     0.0000     0         
+C8               CSO9             J7               100        0.0185     0.0000     0.0000     0.00000    0         
+C15              CSO8             J11              100        0.012      0.0000     0.0000     0.0000     0         
+C21              CSO10            J18              100        0.02       0.00000    0.00000    0.00000    0         
+River            SW               Out_SW           400        0.035      0          0          0          0         
+
+[ORIFICES]
+;;Name           From Node        To Node          Type         Offset     Qcoeff     Gated    CloseTime 
+;;-------------- ---------------- ---------------- ------------ ---------- ---------- -------- ----------
+V4               T4               J6               SIDE         0.00000    1          NO       0         
+V5               T5               J2               SIDE         0.0000     1          NO       0         
+V1               T1               J19              SIDE         0.00000    1          NO       0         
+V6               T6               J9               SIDE         0.0000     1          NO       0         
+V3               T3               J14              SIDE         0.0000     1          NO       0         
+V2               T2               J17              SIDE         0.0000     1          NO       0         
+SW_GW            SW               GW1              SIDE         0          1          NO       0         
+S_to_G           SW               GW1              SIDE         0          1          YES      0         
+G_to_S           GW1              SW               SIDE         0          1          YES      0         
+Inf_1            S_1              GW1              SIDE         0          1          YES      0         
+Inf_2            S_2              GW1              SIDE         0          1          YES      0         
+Inf_3            S_3              GW1              SIDE         0          1          YES      0         
+Inf_4            S_4              GW1              SIDE         0          1          YES      0         
+Inf_5            S_5              GW1              SIDE         0          1          YES      0         
+Inf_6            S_6              GW1              SIDE         0          1          YES      0         
+Inf_7            S_7              GW1              SIDE         0          1          YES      0         
+Inf_8            S_8              GW1              SIDE         0          1          YES      0         
+Inf_9            S_9              GW1              SIDE         0          1          YES      0         
+Inf_10           S_10             GW1              SIDE         0          1          YES      0         
+Ud_1             S_1              SW               SIDE         0          1          YES      0         
+Ud_2             S_2              SW               SIDE         0          1          YES      0         
+Ud_3             S_3              SW               SIDE         0          1          YES      0         
+Ud_4             S_4              SW               SIDE         0          1          YES      0         
+Ud_5             S_5              SW               SIDE         0          1          YES      0         
+Ud_6             S_6              SW               SIDE         0          1          YES      0         
+Ud_7             S_7              SW               SIDE         0          1          YES      0         
+Ud_8             S_8              SW               SIDE         0          1          YES      0         
+Ud_9             S_9              SW               SIDE         0          1          YES      0         
+Ud_10            S_10             SW               SIDE         0          1          YES      0         
+
+[WEIRS]
+;;Name           From Node        To Node          Type         CrestHt    Qcoeff     Gated    EndCon   EndCoeff   Surcharge  RoadWidth  RoadSurf   Coeff. Curve
+;;-------------- ---------------- ---------------- ------------ ---------- ---------- -------- -------- ---------- ---------- ---------- ---------- ----------------
+W_1              T1               SW               TRANSVERSE   5          1.84       YES      0        0          YES       
+W_2              T2               SW               TRANSVERSE   5          1.84       YES      0        0          YES       
+W_3              T3               SW               TRANSVERSE   5          1.84       YES      0        0          YES       
+W_4              T4               SW               TRANSVERSE   5          1.84       YES      0        0          YES       
+W_5              T5               SW               TRANSVERSE   5          1.84       YES      0        0          YES       
+W_6              T6               SW               TRANSVERSE   5          1.84       YES      0        0          YES       
+W_7              CSO7             SW               TRANSVERSE   1.2        1.84       YES      0        0          YES       
+W_8              CSO8             SW               TRANSVERSE   2          1.84       YES      0        0          YES       
+W_9              CSO9             SW               TRANSVERSE   2          1.84       YES      0        0          YES       
+W_10             CSO10            SW               TRANSVERSE   1          1.84       YES      0        0          YES       
+Ov_1             S_1              J16              TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_2             S_2              J13              TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_3             S_3              J10              TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_4             S_4              J5               TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_5             S_5              J1               TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_6             S_6              J8               TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_7             S_7              CSO7             TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_8             S_8              CSO8             TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_9             S_9              CSO9             TRANSVERSE   0.3        1.84       YES      0        0          YES       
+Ov_10            S_10             CSO10            TRANSVERSE   0.3        1.84       YES      0        0          YES       
+
+[XSECTIONS]
+;;Link           Shape        Geom1            Geom2      Geom3      Geom4      Barrels    Culvert   
+;;-------------- ------------ ---------------- ---------- ---------- ---------- ---------- ----------
+C1               CIRCULAR     1                0          0          0          1                    
+C6               CIRCULAR     0.3              0          0          0          1                    
+C2               CIRCULAR     0.6              0          0          0          1                    
+C9               CIRCULAR     0.5              0          0          0          1                    
+C16              CIRCULAR     2                0          0          0          1                    
+C3               CIRCULAR     1                0          0          0          1                    
+C19              CIRCULAR     1                0          0          0          1                    
+C11              CIRCULAR     2                0          0          0          1                    
+C20              CIRCULAR     2                0          0          0          1                    
+C22              CIRCULAR     0.8              0          0          0          1                    
+C12              CIRCULAR     2                0          0          0          1                    
+C17              CIRCULAR     2                0          0          0          1                    
+C10              CIRCULAR     1.5              0          0          0          1                    
+C13              CIRCULAR     2                0          0          0          1                    
+C18              CIRCULAR     2                0          0          0          1                    
+C23              CIRCULAR     1.5              0          0          0          1                    
+C4               CIRCULAR     1                0          0          0          1                    
+C7               CIRCULAR     1                0          0          0          1                    
+C14              CIRCULAR     2                0          0          0          1                    
+C5               CIRCULAR     0.2555           0          0          0          1                    
+C8               CIRCULAR     0.318            0          0          0          1                    
+C15              CIRCULAR     0.453            0          0          0          1                    
+C21              CIRCULAR     0.44             0          0          0          1                    
+River            IRREGULAR    River           
+V4               RECT_CLOSED  0.0264           0.3048     0          0
+V5               RECT_CLOSED  0.013            0.3048     0          0
+V1               RECT_CLOSED  0.09             0.3048     0          0
+V6               RECT_CLOSED  0.0581           0.3048     0          0
+V3               RECT_CLOSED  0.063            0.3048     0          0
+V2               RECT_CLOSED  0.0465           0.3048     0          0
+SW_GW            CIRCULAR     0.05             0          0          0
+S_to_G           CIRCULAR     0.08             0          0          0
+G_to_S           CIRCULAR     0.08             0          0          0
+Inf_1            CIRCULAR     0.0653           0          0          0
+Inf_2            CIRCULAR     0.0498           0          0          0
+Inf_3            CIRCULAR     0.0439           0          0          0
+Inf_4            CIRCULAR     0.0267           0          0          0
+Inf_5            CIRCULAR     0.0420           0          0          0
+Inf_6            CIRCULAR     0.0672           0          0          0
+Inf_7            CIRCULAR     0.0218           0          0          0
+Inf_8            CIRCULAR     0.0591           0          0          0
+Inf_9            CIRCULAR     0.0270           0          0          0
+Inf_10           CIRCULAR     0.0362           0          0          0
+Ud_1             CIRCULAR     0.1629           0          0          0
+Ud_2             CIRCULAR     0.1353           0          0          0
+Ud_3             CIRCULAR     0.1204           0          0          0
+Ud_4             CIRCULAR     0.0746           0          0          0
+Ud_5             CIRCULAR     0.1121           0          0          0
+Ud_6             CIRCULAR     0.1615           0          0          0
+Ud_7             CIRCULAR     0.0619           0          0          0
+Ud_8             CIRCULAR     0.150            0          0          0
+Ud_9             CIRCULAR     0.0746           0          0          0
+Ud_10            CIRCULAR     0.0973           0          0          0
+W_1              RECT_OPEN    2                11.8       0          0         
+W_2              RECT_OPEN    5                12         0          0         
+W_3              RECT_OPEN    5                10.3       0          0         
+W_4              RECT_OPEN    5                2.6        0          0         
+W_5              RECT_OPEN    5                6.7        0          0         
+W_6              RECT_OPEN    5                20.1       0          0         
+W_7              RECT_OPEN    2                1.6        0          0         
+W_8              RECT_OPEN    2                19         0          0         
+W_9              RECT_OPEN    2                4.8        0          0         
+W_10             RECT_OPEN    1                4.2        0          0         
+Ov_1             RECT_OPEN    0.3              20.3       0          0         
+Ov_2             RECT_OPEN    0.3              16.8       0          0         
+Ov_3             RECT_OPEN    0.3              20.5       0          0         
+Ov_4             RECT_OPEN    0.3              2.9        0          0         
+Ov_5             RECT_OPEN    0.3              8.9        0          0         
+Ov_6             RECT_OPEN    0.3              28.8       0          0         
+Ov_7             RECT_OPEN    0.3              1.9        0          0         
+Ov_8             RECT_OPEN    0.3              26.7       0          0         
+Ov_9             RECT_OPEN    0.3              5.8        0          0         
+Ov_10            RECT_OPEN    0.3              5.7        0          0         
+
+[TRANSECTS]
+;;Transect Data in HEC-2 format
+;
+NC 0.035    0.035    0.035   
+X1 River             5        0.0      0.0      0.0      0.0      0.0      0.0      0.0     
+GR 27.6     0        26.9     11       26.4     22       26.9     33       27.6     44      
+
+[LOSSES]
+;;Link           Kentry     Kexit      Kavg       Flap Gate  Seepage   
+;;-------------- ---------- ---------- ---------- ---------- ----------
+C1               0.00000    0.00000    0.00000    NO         0.00000   
+C6               0.00000    0.00000    0.00000    NO         0.00000   
+C2               0.00000    0.00000    0.00000    NO         0.00000   
+C9               0.00000    0.00000    0.00000    NO         0.00000   
+C16              0.00000    0.00000    0.00000    NO         0         
+C3               0.00000    0.00000    0.00000    NO         0         
+C19              0.00000    0.00000    0.00000    NO         0.00000   
+C11              0.00000    0.00000    0.00000    NO         0.00000   
+C20              0.00000    0.00000    0.00000    NO         0.0000    
+C22              0.00000    0.00000    0.00000    NO         0.0000    
+C12              0.00000    0.00000    0.00000    NO         0.00000   
+C17              0.00000    0.00000    0.00000    NO         0.0000    
+C10              0.00000    0.00000    0.00000    NO         0.00000   
+C13              0.00000    0.00000    0.00000    NO         0         
+C18              0.00000    0.00000    0.00000    NO         0.0000    
+C23              0.00000    0.00000    0.00000    NO         0.0000    
+C4               0.00000    0.00000    0.00000    NO         0.00000   
+C7               0.00000    0.00000    0.00000    NO         0.00000   
+C14              0.0000     0.0000     0.0000     NO         0.0000    
+C5               0.00000    0.00000    0.00000    NO         0.00000   
+C8               0.00000    0.00000    0.00000    NO         0.00000   
+C15              0.0000     0.0000     0.0000     NO         0.0000    
+C21              0.00000    0.00000    0.00000    NO         0.00000   
+
+
+[DWF]
+;;Node           Constituent      Baseline   Patterns  
+;;-------------- ---------------- ---------- ----------
+CSO10            FLOW             0.00314    "" "DWF"
+CSO7             FLOW             0.00656    "" "DWF"
+CSO8             FLOW             0.00518    "DWFCommercial0"
+CSO9             FLOW             0.00443    "" "DWF"
+J1               FLOW             0.01269    "" "DWF"
+J10              FLOW             0.00871    "" "DWF"
+J13              FLOW             0.01056    "" "DWF"
+J16              FLOW             0.01251    "" "DWF"
+J5               FLOW             0.00288    "" "DWF"
+J8               FLOW             0.02126    "" "DWF"
+
+[CURVES]
+;;Name           Type       X-Value    Y-Value   
+;;-------------- ---------- ---------- ----------
+Tank1            Storage    0          140       
+Tank1                       5          140       
+;
+Tank2            Storage    0          200       
+Tank2                       5          200       
+;
+Tank3            Storage    0          520       
+Tank3                       5          520       
+;
+Tank4            Storage    0          100       
+Tank4                       5          100       
+;
+Tank5            Storage    0          100       
+Tank5                       5          100       
+;
+Tank6            Storage    0          120       
+Tank6                       5          120       
+;
+Test_GW          Storage    0          10000     
+Test_GW                     10         10000     
+;
+S1               Storage    0          2340     
+S1                          0.3        2340     
+;
+S2               Storage    0          1360   
+S2                          0.3        1360   
+;
+S3               Storage    0          1060      
+S3                          0.3        1060      
+;
+S4               Storage    0          390      
+S4                          0.3        390      
+;
+S5               Storage    0          970      
+S5                          0.3        970      
+;
+S6               Storage    0          2480   
+S6                          0.3        2480   
+;
+S7               Storage    0          260    
+S7                          0.3        260    
+;
+S8               Storage    0          1920     
+S8                          0.3        1920     
+;
+S9               Storage    0          400      
+S9                          0.3        400      
+;
+S10              Storage    0          720    
+S10                         0.3        720    
+
+[TIMESERIES]
+;;Name           Date       Time       Value     
+;;-------------- ---------- ---------- ----------
+rain1            FILE "../rainfall/1Astlingen_Erft1.txt"
+;
+rain2            FILE "../rainfall/2Astlingen_Erft2.txt"
+;
+rain3            FILE "../rainfall/3Astlingen_Erft3.txt"
+;
+rain4            FILE "../rainfall/4Astlingen_Erft4.txt"
+;
+Levels           FILE "SW_downstream_level.txt"
+
+[PATTERNS]
+;;Name           Type       Multipliers
+;;-------------- ---------- -----------
+DWFCommercial0   HOURLY     0     0     0     0     0     0    
+DWFCommercial0              2     2     2     2     2     2    
+DWFCommercial0              2     2     2     2     2     2    
+DWFCommercial0              0     0     0     0     0     0    
+;
+DWF              HOURLY     0.2   0.2   0.2   0.3   0.6   0.9  
+DWF                         1.1   1.3   1.3   1.4   1.6   1.8  
+DWF                         2     1.8   1.4   1.2   1.1   1.1  
+DWF                         1.1   1.2   1     0.7   0.3   0.2  
+
+[REPORT]
+;;Reporting Options
+SUBCATCHMENTS ALL
+NODES ALL
+LINKS ALL
+
+[TAGS]
+
+[MAP]
+DIMENSIONS -3888.889 0.000 13888.889 10000.000
+Units      None
+
+[COORDINATES]
+;;Node           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+CSO10            8306.122           4775.510          
+CSO7             4102.041           5156.463          
+CSO8             1272.109           4448.980          
+CSO9             4156.463           7210.884          
+J1               6918.367           5850.340          
+J10              2020.408           3727.891          
+J11              1721.088           3986.395          
+J12              2646.259           3578.231          
+J13              8551.020           3619.048          
+J14              6700.680           3333.333          
+J15              7435.374           3687.075          
+J16              7163.265           3959.184          
+J17              7435.374           3537.415          
+J18              7598.639           4285.714          
+J19              9666.667           4911.565          
+J2               6687.075           4421.769          
+J3               6687.075           3510.204          
+J4               4646.259           4312.925          
+J5               5680.272           4326.531          
+J6               6170.068           3523.810          
+J7               3680.272           6448.980          
+J8               3272.109           5863.946          
+J9               2646.259           4571.429          
+Out_SW           10000.000          9200.000          
+Out_to_WWTP      10251.701          5034.014          
+T5               6700.680           5442.177          
+T4               6156.463           4326.531          
+T6               3095.238           5482.993          
+T3               4074.830           3346.939          
+T2               8115.646           3551.020          
+T1               8591.837           4435.374          
+GW1              -1208.822          8054.160          
+SW               9600.000           9200.000          
+S_1              6934.968           4232.409          
+S_2              9184.435           3411.514          
+S_3              815.565            3614.072          
+S_4              5069.296           5074.627          
+S_5              7414.712           7121.535          
+S_6              2148.188           7260.128          
+S_7              5495.736           7292.111          
+S_8              1007.463           5820.896          
+S_9              3235.608           7910.448          
+S_10             8128.998           5778.252          
+
+[VERTICES]
+;;Link           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+S_to_G           1807.036           9392.324          
+S_to_G           5.330              9275.053          
+S_to_G           -900.853           8933.902          
+S_to_G           -1242.323          7987.158          
+G_to_S           175.906            8656.716          
+G_to_S           2777.186           8997.868          
+Ud_2             9642.857           9200.426          
+Ud_3             9557.569           9189.765          
+Ud_9             9642.857           9179.104          
+
+[Polygons]
+;;Subcatchment   X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+SC01             7448.980           4925.170          
+SC01             8074.830           4666.667          
+SC01             7993.197           4190.476          
+SC01             7380.952           3700.680          
+SC01             6482.993           3700.680          
+SC01             6496.599           4136.054          
+SC02             8455.782           3972.789          
+SC02             8414.966           4258.503          
+SC02             9530.612           3319.728          
+SC02             9598.639           2612.245          
+SC02             7680.272           2530.612          
+SC02             7734.694           3374.150          
+SC03             1027.211           4027.211          
+SC03             2020.408           3251.701          
+SC03             2333.333           2312.925          
+SC03             156.463            2285.714          
+SC03             -251.701           3523.810          
+SC04             5190.476           5727.891          
+SC04             5734.694           5727.891          
+SC04             7000.000           5020.408          
+SC04             6714.286           4557.823          
+SC04             4795.918           4612.245          
+SC04             4795.918           5414.966          
+SC05             6319.728           7346.939          
+SC05             6265.306           7673.469          
+SC05             7612.245           7673.469          
+SC05             7897.959           6938.776          
+SC05             6850.340           6448.980          
+SC05             6605.442           6925.170          
+SC06             2034.014           8095.238          
+SC06             2768.707           6802.721          
+SC06             1870.748           5918.367          
+SC06             1462.585           6204.082          
+SC06             1789.116           6870.748          
+SC06             387.755            7292.517          
+SC06             1000.000           8095.238          
+SC07             4741.497           7360.544          
+SC07             6210.884           7646.259          
+SC07             6251.701           7346.939          
+SC07             6414.966           7102.041          
+SC07             6578.231           6829.932          
+SC07             6809.524           6394.558          
+SC07             6170.068           6068.027          
+SC07             5190.476           6190.476          
+SC08             129.252            6353.741          
+SC08             1013.605           6707.483          
+SC08             1489.796           5809.524          
+SC08             2891.156           5265.306          
+SC08             2401.361           4598.639          
+SC08             1421.769           4843.537          
+SC08             414.966            4639.456          
+SC09             4306.122           7836.735          
+SC09             3884.354           6857.143          
+SC09             2823.129           6829.932          
+SC09             2088.435           8136.054          
+SC09             3408.163           8136.054          
+SC010            7027.211           5428.571          
+SC010            7503.401           5972.789          
+SC010            7489.796           6448.980          
+SC010            8251.701           6217.687          
+SC010            8346.939           5632.653          
+SC010            8251.701           5183.673          
+SC010            8142.857           4965.986          
+SC010            8156.463           4829.932          
+SC010            8102.041           4761.905          
+SC010            8088.435           4707.483          
+SC010            7489.796           4938.776          
+SC010            7585.034           5183.673          
+Sw_1             7329.424           4562.900          
+Sw_2             9333.689           2931.770          
+Sw_3             133.262            3294.243          
+Sw_4             5111.940           5437.100          
+Sw_5             7446.695           7462.687          
+Sw_6             1188.699           7825.160          
+Sw_7             5101.279           7281.450          
+Sw_8             687.633            6183.369          
+Sw_9             2819.829           7985.075          
+Sw_10            7830.490           6023.454          
+
+;;Storage Node   X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+T5               6700.680           5442.177          
+T4               6156.463           4326.531          
+T6               3095.238           5482.993          
+T3               4074.830           3346.939          
+T2               8115.646           3551.020          
+T1               8591.837           4435.374          
+GW1              -1208.822          8054.160          
+SW               9600.000           9200.000          
+S_1              6934.968           4232.409          
+S_2              9184.435           3411.514          
+S_3              815.565            3614.072          
+S_4              5069.296           5074.627          
+S_5              7414.712           7121.535          
+S_6              2148.188           7260.128          
+S_7              5495.736           7292.111          
+S_8              1007.463           5820.896          
+S_9              3235.608           7910.448          
+S_10             8128.998           5778.252          
+
+[SYMBOLS]
+;;Gage           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+RG1              265.306            4054.422          
+RG2              1993.197           8421.769          
+RG3              7408.163           2870.748          
+RG4              8346.939           6707.483          
+
+
+[BACKDROP]
+FILE       "astingen.jpg"
+DIMENSIONS -3888.889 0.000 13888.889 10000.000

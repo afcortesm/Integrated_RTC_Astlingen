@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: >-
+  Integrated real-time control of blue-green infrastructure in the
+  Astlingen benchmark
+abstract: >-
+  SWMM models, control scripts and objective function evaluation for two
+  Astlingen scenarios: swales coupled to groundwater and the combined
+  sewer, and blue roofs coupled to the combined sewer.
+type: software
+authors:
+  - given-names: Andres Felipe
+    family-names: Cortes Moreno
+    affiliation: Delft University of Technology
+    # orcid: 'https://orcid.org/0000-0000-0000-0000'   # TODO add
+  # TODO add the co-authors, in the order they appear on the paper
+version: 1.0.0
+date-released: '2026-10-14'   # TODO set to the day you cut the release
+license: MIT
+keywords:
+  - real-time control
+  - blue-green infrastructure
+  - urban drainage
+  - SWMM
+  - Astlingen benchmark
+# TODO fill in once the paper is accepted, then uncomment. GitHub will
+# then offer the paper rather than the software as the citation.
+# preferred-citation:
+#   type: article
+#   title: ''
+#   authors:
+#     - given-names: Andres Felipe
+#       family-names: Cortes Moreno
+#   journal: ''
+#   year: 2026
+#   doi: ''
