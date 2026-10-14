@@ -26,11 +26,6 @@ rainfall/
 evaluation/
     paper_objectives.py               objective functions
 
-results/
-    objectives_scenario1.csv          objectives, all stages
-    objectives_scenario2.csv
-    sensitivity_scenario1.csv         set-point sensitivity analysis
-    sensitivity_scenario2.csv
 ```
 
 ## Requirements
